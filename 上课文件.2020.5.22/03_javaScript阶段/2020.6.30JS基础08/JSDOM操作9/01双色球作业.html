@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#ul1{
+				list-style-type: none;
+				overflow: hidden;
+			}
+			#ul1 li{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				float: left;
+				margin-right: 20px;
+				text-align: center;
+				line-height: 50px;
+			}
+			.red{
+				border: 1px solid red;
+			}
+			.blue{
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="ul1">
+			<li class="red"></li>
+			<li class="red"></li>
+			<li class="red"></li>
+			<li class="red"></li>
+			<li class="red"></li>
+			<li class="red"></li>
+			<li class="blue"></li>
+		</ul>
+		
+		<button id="btn">随机一注</button>
+	</body>
+	<script type="text/javascript">
+		var redLis = document.getElementsByClassName("red");
+		var blueLi = document.getElementsByClassName("blue");
+		var btn = document.getElementById("btn");
+		// 添加点击事件
+		var balls;
+		var ran;//存储随机的数字
+		var bol;//记录是否重复
+		btn.onclick = function(){
+			balls = [];//每次点击按钮,清空数组
+			// 随机6个不重复的红色球数字 1 ~ 33
+			while (balls.length < 6){
+				ran = ranNum(1,33);
+				// 遍历数组,判断此次随机的数字与之前数组中存在的数组元素是否重复
+				bol = false;//记录不重复
+				for (var i = 0;i < balls.length;i++) {
+					if (balls[i] == ran) {
+						bol = true;//重复,代表此前数组已存在该值
+						break;
+					}
+				}
+				if (!bol) {// bol == false
+					// 添加到数组中
+					balls[balls.length] = ran;
+				}
+			}
+			console.log(balls);
+			// 如果小于10,则在前面加0
+			for (var i = 0;i < balls.length;i++) {
+				if (balls[i] < 10) {
+					balls[i] = "0" + balls[i];
+				}
+                   // 或者
+				 // balls[i] =  balls[i] < 10 ? "0" + balls[i] : balls[i];
+			}
+			console.log(balls);
+			var m = ranNum(1,16);
+			// 蓝球数字
+			balls[balls.length] = m < 10 ? "0" + m : m;
+			console.log(balls);
+			// 给li赋值
+			for (var i = 0;i < redLis.length;i++) {
+				redLis[i].innerHTML = balls[i];
+			}
+			blueLi[0].innerHTML = balls[6];
+		}
+		
+		// 随机函数
+		function ranNum(m,n){
+			return Math.floor(Math.random() * (n - m + 1) + m);
+		}
+	</script>
+	
+</html>

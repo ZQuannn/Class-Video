@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button>首次请求</button>
+<button>之后请求</button>
+
+</body>
+</html>
+<!--
+cookie是服务器生成,并且在用户首次访问的时候返回给客户端,并且存储在客户端!!!!
+
+之后客户端只要再次请求,都会自动携带上cookie
+-->
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+  $("button:eq(0)").click(function () {
+   $.ajax({
+       url:"http://127.0.0.1:5678/firstRequest",
+       type:"get",
+       success:function (data) {
+        console.log("服务器返回的数据:" + data);
+        console.log("服务器返回的cookie:" + document.cookie);
+       }
+   });
+  });
+
+   $("button:eq(1)").click(function () {
+       $.ajax({
+           url:"http://127.0.0.1:5678/secondRequest",
+           type:"get",
+           data:{name:"Aurora"},
+           success:function (data) {
+               console.log("服务器返回的数据:" + data);
+               console.log("服务器返回的cookie:" + document.cookie);
+
+           }
+       });
+   });
+document.cookie = "name=lily;max-age=9000";
+</script>
+
+
+
+
+
+

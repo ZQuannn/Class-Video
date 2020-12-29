@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 面向对象的两大核心:类和对象;
+		// 面向对象的三大特点:封装,继承,多态;
+		// 创建一个高中生类  --- SeniorHightSchool
+		function SeniorHightSchool(name,sex,num){
+			// 添加属性
+			this.name = name;
+			this.sex = sex;
+			this.num = num;
+			// 方法
+			this.study = function(){
+				console.log(this.name + "在学习!");
+			}
+		}
+		// 原型
+		SeniorHightSchool.prototype = {
+			score:"80",
+			playGame:function(){
+				console.log(this.name + "打游戏");
+			}
+		}
+		// 创建大学生类
+		function University(name1,sex1,num1,hobby){
+			// 添加自己独有的属性
+			this.hobby = hobby;
+			// 方法一:call函数实现继承
+// 			类1.call(类对象2,参数1,参数2...)
+// 			解释:类对象2继承类1中的构造函数中属性和方法,
+			// SeniorHightSchool.call(this,name1,sex1,num1);
+			// 方法二:apply
+			// 类1.apply(类对象2,[参数1,参数2....])
+			// 解释:类对象2继承类1中构造函数的属性和方法
+			SeniorHightSchool.apply(this,[name1,sex1,num1]);
+		}
+		// 		原型继承 子类对象继承父类原型中的属性和方法
+		// 		方式:子类名.prototype = new 父类名()
+		// 注意:原型继承一定要放在创建子类对象之前
+		        University.prototype = new SeniorHightSchool();
+		var stu1 = new University("增超","man",18,"girl");
+		console.log(stu1.name);//使用父级继承过来的构造函数中的属性
+		stu1.study();//调用父级类中的方法
+		console.log(stu1.hobby);
+
+		stu1.playGame();//调用父类原型中的方法
+		console.log(stu1.score);
+		var stu2 = new University("王增超","man",22,"girl");
+		stu2.playGame();
+		var Senior1 = new SeniorHightSchool("程林","ladyboy",12);
+		Senior1.study();
+		stu2.study();
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

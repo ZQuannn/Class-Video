@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#content{
+				font-size: 40px;
+				width: 400px;
+				border: 1px solid black;
+			}
+			#up{
+				width: 50px;
+				height: 80px;
+				border-radius: 20px;
+				background-color: blue;
+				color: white;
+				position: fixed;
+				right: 30px;
+				bottom: 50px;
+				font-size: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="up">顶部</div>
+		<div id="content">
+			今年40岁的房向魁是河北邯郸魏县人，多年来一家4口一直靠养羊为生。2017年底，房向魁一家终于脱了贫，但是正当他准备扩大养殖规模改善生活时，妻子却患上了恶性肿瘤，花去了家里大部分积蓄，全家的担子都压在了房向魁肩上。为了治病，房向魁前后花了15万元。除去医保报销和大病救助，个人还要负担5万元，这可愁坏了他们一家。
+
+　　在魏县，像房向魁这样的家庭不算少数，他们收入不多，刚过贫困线，被称为边缘易致贫户。还有一类人，他们的收入虽然在贫困线以上，但收入也很低，在贫困线标准1.5倍以内，按照2018年的标准，也就是低于4800元，无法享受到脱贫政策，被称作脱贫不稳定户。这两类人的共同点就是都徘徊在贫困线附近，一旦生活有个变故，便很容易滑落到贫困线以下。以魏县所属的邯郸市为例，2016年有20万人脱贫，但同时又有近5万人致贫、返贫。
+
+　　河北邯郸市委书记高宏志说：“致贫和返贫主要是两大原因，一个是支出骤增，一个就是收入骤减。对支出骤增的，我们通过工作发现主要是三大原因，就是因病、因学、因灾，我们就建立了防贫基金。”
+
+　　为了帮助徘徊在贫困线上下的这两类人，邯郸市于2017年在魏县试点设立了精准防贫基金。魏县有80万农村人口，最容易返贫致贫的贫困户和低收入户大约8万人。按照每人50元的标准，县财政每年拿出400万元的精准防贫基金作为保险金，交给保险公司负责管理。只要家庭年人均可支配收入在农村最低生活保障线以下，或因病、因学、因意外事故、因产业风险支出在一定数额以上的，都可以申请保险理赔。
+
+　　这套机制的最大特点是它保的不是个人，而是全县80万农村人口。每月医保、教育、民政等部门都会把符合条件的人员筛选出来，交给保险公司入户核对，然后再交给公安、银行、房管等部门复查，房向魁一家就是这样被精准识别出来的。由于医保和防贫保险的赔付，所以房向魁妻子15万元的医药费最后自己只掏了1万元左右。
+
+　　房向魁说：“小额贷款给我批了5万，拿这些钱开始养羊，一步步地走到今天，日子越来越好。如果这样发展下去，预计一年有10多万元的收入。”
+
+　　截至目前，邯郸市通过防贫基金共救助了符合条件的贫困户和低收入户3305户，发放防贫基金3700多万元。减少支出，增加收入，就是邯郸市防贫的诀窍。减少支出有防贫基金，那么靠什么增加收入呢？在邯郸，有很多脱贫不稳定户和边缘易致贫户因为需要照顾老人、孩子，无法外出打工，那么，该怎么办？邯郸的答案是在农村建“扶贫微工厂”。所谓“扶贫微工厂”就是由政府出资，利用各村的闲散土地，建设面积从800—2000平米不等的微工厂，然后以优惠的条件出租给企业。
+
+　　对于企业，最大的好处是房租大幅降低；对于村民，最大的好处莫过于在家门口就能打工挣钱了。成墨青是大名县郭村的贫困户，因为丈夫去世，婆婆瘫痪，所以她独自抚养着两个孩子，没法外出打工，现在她在家门口的微工厂找了份工作。
+		</div>
+	</body>
+	<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var upObj = document.getElementById("up");
+		// 不同浏览器获取body的滚动距离,两种方式
+// 		document.documentElement.scrollTop
+// 		document.body.scrollTop
+       var t,b,c,d,end,timer;
+		upObj.onclick  = function(){
+			// 直接回到顶部,兼容性处理
+// 			if (document.documentElement.scrollTop) {
+// 				document.documentElement.scrollTop = 0;
+// 			} else{
+// 				document.body.scrollTop = 0;
+// 			}
+            // 使用tween.js回到顶部
+			 t = 0;
+			 b = document.documentElement.scrollTop || document.body.scrollTop;//属性的开始量,获取垂直方向上的滚动距离
+			 end = 0;
+			 c = end - b;
+			 d = 30;
+			 clearInterval(timer);
+			 timer = setInterval(function(){
+				 t++;
+				 // 兼容性
+				 if (document.documentElement.scrollTop) {
+				 	document.documentElement.scrollTop = Tween.Linear(t,b,c,d);
+				 } else{
+				 	document.body.scrollTop = Tween.Linear(t,b,c,d);
+				 }
+				 if (t == d) {
+				 	clearInterval(timer);
+				 }
+			 },30);
+		}
+	</script>
+</html>

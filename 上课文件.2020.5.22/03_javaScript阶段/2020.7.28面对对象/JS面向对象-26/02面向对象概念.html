@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+// 		面向过程编程： 以事件(任务) 为中心, 程序围绕事件, 列出了事件的每个步骤, 一步一步完成.
+// 		面向对象编程： 以事物为中心, 程序围绕事物展开, 完成事件只是一个小任务.
+// 		类:具有相同特征(属性)和行为(方法)事物的抽象;
+// 		对象:是类的实例;
+// 		类时抽象的,对象是具体的;
+// 		创建类的一般形式: 类名大写
+// 		function 类名(参数1,参数2...){
+// 			属性和方法;
+// 			}
+
+        var arrA = [23,45,67];
+		// 原型  
+		// var arrA = new Array(23,45,67);
+		var arrB = [44,55,77];
+		console.log(arrA.length);
+		console.log(arrB.length);
+// 		arrA.name = "壮壮";
+// 		console.log(arrB.name);
+		arrA.push(88);
+		console.log(arrA);
+// 		var obj = {};
+// 		var obj = new Object(); 
+		// 创建类 -- 构造函数创建类
+		function Person(name,sex,age){
+			// 属性(特征)
+			this.name = name;
+			this.sex = sex;
+			this.age = age;
+			// 方法(行为)
+			this.study = function(){
+				console.log(this.name + "在学习");
+			}
+			
+		}
+		// 创建对象,通过类创建对象 new + 类名(参数)
+		var stuOne = new Person("向阳","ladyboy",29);
+		console.log(stuOne.name);
+		stuOne.hobby = "女";
+		var stuTwo = new Person("程林","lady",19);
+		console.log(stuTwo.name);
+		stuOne.study();//方法调用
+		stuTwo.study();
+		// 创建类的第二种方式:工厂模式
+		function Dog(type,color,age){
+			// 在构造函数中创建根对象
+			var dog = new Object();//空对象
+			dog.type = type;
+			dog.color = color;
+			dog.age = age;
+			// 设置方法
+			dog.bitePeople = function(){
+				console.log(this.type + "正在咬人");
+			}
+			
+			return dog;//返回创建的对象
+		}
+		// 使用工厂模式创建对象
+		var dog1 = Dog("哈士奇","黑白",3);
+		dog1.bitePeople();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

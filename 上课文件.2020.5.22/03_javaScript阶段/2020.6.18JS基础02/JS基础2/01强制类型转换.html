@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		// 1. Number(a) 将a强制类型转换成number类型;
+		// 注意:只能转换纯数字的字符串
+		var str = "99";
+		var w = Number(str);
+		console.log(typeof(str));
+		console.log(typeof(w));	
+		console.log("w = " + w);
+		var a = "9",
+			b = 8,
+			c;
+			c = Number(a) + b;
+			console.log("c = " + c);
+		// 2. String(a) 将a强制类型转换成String类型;	
+		// 3.ParseInt(a) 将a解析成整数,从字符串左向右开始解析,直到不是整数结束;
+		var price = "89.8元67"
+		var s = parseInt(price);
+		console.log("s = " + s);
+		// 4.parseFloat(a) 
+		var weight = "9.9kg";
+		var s1 = parseFloat(weight);
+		console.log("s1 = " + s1);
+		
+		
+		
+	</script>
+</html>

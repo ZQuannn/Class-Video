@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style type="text/css">
+			*{
+				margin: 0;	
+				padding: 0;
+			}
+			#p1,#p2{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				font-size: 50px;
+				color: white;
+				text-align: center;
+				display: inline-block;
+			}
+			/* 媒体查询 
+			一般形式: 
+			@media mediatype(设备类型) and (条件){
+				css样式部分
+			} 
+			mediatype 一般写 screen 代表手机，平板，电脑等
+			*/
+		   /* 解释:当屏幕宽度小于等于700像素时,会执行以下css样式部分 */
+			@media screen and (max-width:700px) {
+				#p1{
+					border-radius: 50%;
+					background-color: blue;
+				}
+				body{
+					background-color: yellow;
+				}
+			}
+			/* >=900px 执行的css样式 */
+			@media screen and (min-width:900px){
+				#p1,#p2{
+					width: 40%;
+					background-color: green;
+				}
+				body{
+					background-color: pink;
+				}
+			}
+			/* >700 <900 */
+			@media screen and (min-width:700px) and (max-width:900px) {
+				body{
+					background-color: black;
+				}
+				#p1,#p2{
+					border: 5px solid green;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p id="p1">晓冲</p>
+		<p id="p2">佳辉</p>
+	</body>
+</html>

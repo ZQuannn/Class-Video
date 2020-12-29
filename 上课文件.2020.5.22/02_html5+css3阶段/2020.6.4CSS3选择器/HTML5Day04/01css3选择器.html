@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			/* 1.属性选择器 
+			[属性名=属性值]
+			*/
+		   [type="text"]{
+			   background-color: red;
+		   }
+		   [src="img/2.jpg"]{
+			   border: 5px solid blue;
+		   }
+		   [a="b"]{
+			   width: 500px;
+		   }
+		   /* ^=属性以某某开头的标签元素 */
+		   [class^="p"]{
+			   color: red;
+		   }
+		   /* $=属性以某某结尾的标签元素 */
+		   [src$="jpg"]{
+			   border-radius: 50%;
+		   }
+		   /* *= 属性当中包含某字符的标签 */
+		   [class*="4"]{
+			   border: 3px solid blue;
+		   }
+		   /* 2.nth-child 选择器
+		   1. A:nth-child(n) 正着数为第n个选择器对应的标签设置样式;注意:n从0开始,可以通过n找到有规律符合条件的元素;
+		   2. A:first-child 符合A选择器中的标签的第一个元素设置样式;(正着数)
+		   3. A:last-child 符合A选择器中的标签的最后一个元素设置样式;(正着数)
+		   4. A:nth-last-child(n) 倒着数为第n个选择器对应的标签设置样式;注意:n从0开始,可以通过n找到有规律符合条件的元素;
+		   5. A:nth-of-child(n) 正着数只找到符合条件的A,为第n个设置样式; */
+		   #ul1 li:nth-child(8){
+			   font-size: 50px;
+		   }
+		  /* #ul1 li:nth-child(n + 3){
+			   background-color: yellow;
+		   } */
+		   /* 奇数(2n+1)-odd 偶数(2n)-even */
+		    #ul1 li:nth-child(even){
+		       background-color: red;
+		   }
+		   #ul1 li:first-child{
+			   color: blue;
+		   }
+		   #ul1 li:last-child{
+			   color: aqua;
+		   }
+		   #ul1 li:nth-last-child(2){
+			   font-size: 50px;
+			   font-weight: bold;
+			   color: #0000FF;
+		   }
+		   #ul2 li:nth-of-type(3){
+			   font-size: 50px;
+			   color: red;
+		   }
+		   /* nth-last-of-type */
+		  /* ::selection 用来改变浏览器中默认选中文本的背景颜色和字体颜色;注意:只能设置color和background-color */
+		  /* ::selection{
+		   			   background-color: yellow;
+		   			   color: green;
+		   } */
+		   p::selection{
+			   background-color: yellow;
+			   color: green;
+		   }
+		   /* ::first-letter 为符合条件的标签中的第一个字符设置样式 */
+		   li::first-letter{
+			  /* font-size: 100px; */
+		   }
+		   /* ::first-line 为符合条件的标签,第一行设置样式 */
+		   ::first-line{
+			   /* font-size: 50px; */
+			   color: red;
+			   font-weight: bold;
+		   }
+		   /* CSS的兼容性 
+		   浏览器的兼容性 
+		   方式：需要在css样式前面添加前缀
+		   IE浏览器 -----   样式前加 -ms-样式名
+		   chrome和safari浏览器 样式前加 -webkit-样式名
+		   firefox火狐浏览器  样式前加 -moz-样式名
+		   opera欧朋浏览器    样式前加 -o- 或者 -khtml- 样式名
+		   */
+		   #one{
+			   -ms-font-size:150px;
+			   -moz-font-size:150px;
+			   -o-font-size:150px;
+			   -webkit-font-size:150px;
+			   font-size: 150px;
+		   }
+		</style>
+	</head>
+	<body>
+		<input type="text">
+		<br>
+		<input a="b" type="password">
+		<br>
+		<img a="b" src="img/2.jpg" >
+		<img src="img/3.png" >
+		<p id="one" class="p1">1</p>
+		<p class="p2">2</p>
+		<p class="p3">3</p>
+		<p class="p4">4first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式first-letter 为符合条件的标签中的第一个字符设置样式</p>
+		<p class="p5">5</p>
+		<p class="ap4">6</p>
+		<p class="bp3">7</p>
+		<ul id="ul1">
+			<li>LOL1</li>
+			<li>LOL2</li>
+			<li>LOL3</li>
+			<li>LOL4</li>
+			<li>LOL5</li>
+			<li>LOL6</li>
+			<li>LOL7</li>
+			<li>LOL8</li>
+			<li>LOL9</li>
+			<li>LOL10</li>
+		</ul>
+		<ul id="ul2">
+			<li>NBA1</li>
+			<p>hello</p>
+			<li>NBA2</li>
+			<li>NBA3</li>
+			<li>NBA4</li>
+			<li>NBA5</li>
+			<li>NBA6</li>
+			<li>NBA7</li>
+			<li>NBA8</li>
+			<li>NBA9</li>
+			<li>NBA10</li>
+		</ul>
+	</body>
+</html>

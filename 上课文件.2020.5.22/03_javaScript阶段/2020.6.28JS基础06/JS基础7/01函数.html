@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+	</body>
+	<script type="text/javascript">
+// 		函数(function):具有特定功能的代码块；
+// 		特点：
+// 		1.把代码封装起来，使用起来比较方便，方便函数调用；
+// 		2.函数定义时，代码不会执行，只有函数调用，才会执行；
+// 		3.代码具有复用性；
+// 		函数的分类：
+// 		1.库函数(系统函数):系统已经存在的函数，功能已经实现，直接调用即可；
+// 		2.自定义函数:开发者自己定义和实现的函数；
+// 		一般形式：
+// 		function 函数名(参数1，参数2...){
+// 			函数体（函数的实现部分）；
+// 			返回值；
+// 		}
+// 		注意：参数可有可无，如果没有参数，（）不能省略；
+// 		返回值可有可无；
+// 		函数分为：
+// 		1.无参无返回值；
+// 		2.有参无返回值；
+// 		3.无参有返回值；
+// 		4.有参有返回值；
+// 		函数的使用步骤:
+// 		1.函数定义（声明）
+// 		2.函数调用   方式：函数名(参数...) 
+        eatPeach();
+		// 1.无参无返回值的函数
+		function eatPeach(){
+			document.write("泽奇吃🍑!<br>");
+		}
+		// 函数调用
+		eatPeach();
+		eatPeach();
+		// 2.有参无返回值的函数
+// 		function eatWhat(money){
+// 			if (money < 10) {
+// 				document.write("泽奇吃麻辣烫!")
+// 			} else{
+// 				document.write("泽奇吃黄焖鸡!");
+// 			}
+// 		}
+// 		eatWhat(6);
+// 		实参:函数调用时,传入的参数;
+// 		形参:函数定义是,传入的参数;
+// 		形参是拷贝实参的过程;
+		function eatWhat(money){
+			money = 8;
+			if (money < 10) {
+				document.write("泽奇吃麻辣烫!")
+			} else{
+				document.write("泽奇吃黄焖鸡!");
+			}
+			console.log("money1="+money);
+		}
+		var money = 20;
+		eatWhat(money);
+		console.log("money2="+money);
+// 		局部变量:定义在函数内部的变量,叫局部变量;(访问范围:只能在该函数内部访问;)
+// 		全局变量:定义在函数外部的变量,叫全局变量;(访问范围:能在函数外,也可以在函数内访问;)
+// 		function sum(a,b){
+// 			var c = a + b;
+// 			console.log("c = " + c);
+// 		}
+// 		sum(3,8);
+// 		console.log("c = " + c);
+// 		
+// 		document.write("<hr>");
+// 		 var c = 99;
+// 		 var a = 88;
+// 		function sum(a,b){
+// 			var c = a + b;
+// 			console.log("c = " + c);//变量的就近原则 局部变量c
+// 		}
+// 		sum(3,8);
+// 		console.log("c = " + c);//全局变量c
+		
+		
+// 		document.write("<hr>");
+// 		 var c = 99;
+// 		function sum(a,b){
+// 		    c = a + b;
+// 			console.log("c = " + c);//全局变量c
+// 		}
+// 		sum(3,8);
+// 		console.log("c = " + c);//全局变量c
+		
+		var a = 8,b = 9;
+		var c = 22;
+		function sim(a,b){
+			// 变量的就近原则+变量的声明前置
+			// var c;
+			console.log("c = " + c);//undefined
+			c = 88;
+			console.log("c = " + c);///局部变量88
+			a = 12;
+			var c = a + b;
+			console.log("c = " + c);//局部变量 21
+		}
+		sim(a,b);
+		console.log("c = " + c);//全局变量22
+		
+		// var age;
+		age = 18;//变量的声明前置
+		console.log("age = " + age);
+		
+		
+		
+		document.write("<hr>");
+		
+		// var num;  变量的声明前置   全局变量
+		function add(score){
+			num = score + 9;
+			console.log("num1 = " + num);//全局变量num
+		}
+		var score = 59;
+		add(score);
+		console.log("num2 = " + num);//全局变量num
+		
+		var c = 22;
+		function sim(c){
+			console.log("c = " + c);//形参c 22
+			c = 88;
+			console.log("c = " + c);//形参c 88
+			var c = 66;
+			console.log("c = " + c);//重新创建一个新的局部变量c,存储了66
+		}
+		var w = sim(c);
+		console.log("c = " + c);//全局变量 c 22
+		console.log("w = " + w);//undefined 函数无返回值
+		
+		
+		
+	</script>
+</html>
